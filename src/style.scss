@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  font-family: "Playfair Display", serif, "Poppins", sans-serif, "Roboto", sans-serif;
+  line-height: 1.3;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@function vw($px, $base: 1440) {
+  @return ($px / $base) * 100vw;
+}
+
+html {
+  font-size: calc(100vw / 1440 * 10);
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-meduza {
+  background-color: #000;
+  width: 100%;
+  height: 1200vh;
+
+  .play-music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ffffff;
+    color: #000;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 9999;
+    font-weight: 600;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .play-music-btn:hover {
+    transform: scale(1.05);
+  }
+
+  .intro-meduza,
+  .outro-meduza {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      color: #fff;
+      font-size: vw(80);
+      text-align: center;
+      padding: 0 2rem;
+    }
+  }
+
+  .sticky-wrapper-meduza {
+    position: relative;
+    top: 0;
+    width: 400vw;
+    height: 100vh;
+    will-change: transform;
+
+    .titre {
+      width: 100%;
+      color: #fff;
+      font-size: vw(500);
+      text-align: center;
+      margin: 0;
+    }
+
+    .cards {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+
+      &:hover .music-toggle {
+        opacity: 1;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .music-toggle {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity .3s ease;
+        z-index: 10;
+      }
+
+      .play-btn {
+        position: absolute;
+        appearance: none;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: conic-gradient(#ff6347, #ff6347);
+        cursor: pointer;
+        outline: none;
+      }
+
+      .play-btn::before {
+        content: "";
+        position: absolute;
+        width: 93%;
+        height: 93%;
+        background-color: #000;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .play-btn:checked {
+        animation: borderAnimate 700ms ease-in-out 1;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes borderAnimate {
+        0% {
+          transform: rotate(0);
+          background: conic-gradient(#ff6347, transparent 20%);
+        }
+
+        80% {
+          background: conic-gradient(#ff6347, transparent 90%);
+        }
+
+        100% {
+          transform: rotate(360deg);
+          background: conic-gradient(#ff6347, #ff6347);
+        }
+      }
+
+      .play-icon {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        left: 60%;
+        top: 50%;
+        background-color: #ff6347;
+        transform: translate(-60%, -50%) rotate(90deg);
+        clip-path: polygon(50% 15%, 0% 100%, 100% 100%);
+        transition: all 400ms ease-in-out;
+        pointer-events: none;
+      }
+
+      .play-btn:checked+.play-icon {
+        clip-path: polygon(0 100%, 0 100%, 100% 100%);
+      }
+
+      .pause-icon {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
+      .pause-icon::before,
+      .pause-icon::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 100%;
+        background-color: #ff6347;
+      }
+
+      .pause-icon::before {
+        left: 0;
+      }
+
+      .pause-icon::after {
+        right: 0;
+      }
+
+      .play-btn:checked~.pause-icon::before {
+        animation: reveal 300ms ease-in-out 350ms 1;
+        animation-fill-mode: forwards;
+      }
+
+      .play-btn:checked~.pause-icon::after {
+        animation: reveal 300ms ease-in-out 600ms 1;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes reveal {
+        0% {
+          width: 0;
+        }
+
+        100% {
+          width: 35%;
+        }
+      }
+    }
+
+
+    #card-1 {
+      top: 50%;
+      left: 20%;
+    }
+
+    #card-2 {
+      top: 25%;
+      left: 40%;
+    }
+
+    #card-3 {
+      top: 45%;
+      left: 60%;
+    }
+
+    #card-4 {
+      top: 15%;
+      left: 80%;
+    }
+  }
+}
