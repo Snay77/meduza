@@ -45,8 +45,69 @@ body {
   box-sizing: border-box;
 }
 
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -999; // très derrière
+  pointer-events: none; // pour que les clics passent au-dessus
+}
+
+.video-foreground {
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+.video-foreground iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.77vh; // ratio 16:9
+  height: 100vh;
+  transform: translate(-50%, -50%);
+}
+
+/* Si écran large, on remplit différemment */
+@media (min-aspect-ratio: 16/9) {
+  .video-foreground iframe {
+    width: 100vw;
+    height: 56.25vw; // ratio 9:16
+  }
+}
+
+.video-blur-overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.65));
+  z-index: -2;
+  pointer-events: none;
+}
+
+.video-color-pulse {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    radial-gradient(circle at 10% 10%, rgba(220, 20, 60, 0.45), transparent 60%),   /* rouge sang */
+    radial-gradient(circle at 90% 15%, rgba(0, 0, 128, 0.45), transparent 60%),     /* bleu marine */
+    radial-gradient(circle at 15% 85%, rgba(0, 255, 255, 0.4), transparent 60%),    /* vert / cyan */
+    radial-gradient(circle at 85% 85%, rgba(255, 215, 0, 0.45), transparent 60%);   /* or */
+
+  opacity: 0;
+  transform: scale(1);
+  mix-blend-mode: screen;
+  transition: opacity 0.3s ease;
+}
+
 .home-meduza {
-  background-color: #000;
   width: 100%;
   height: 1200vh;
 
@@ -245,23 +306,38 @@ body {
 
 
     #card-1 {
-      top: 50%;
-      left: 20%;
+      top: 60%;
+      left: 10%;
     }
 
     #card-2 {
       top: 25%;
-      left: 40%;
+      left: 25%;
     }
 
     #card-3 {
-      top: 45%;
-      left: 60%;
+      top: 50%;
+      left: 40%;
     }
 
     #card-4 {
       top: 15%;
-      left: 80%;
+      left: 50%;
+    }
+
+    #card-5 {
+      top: 55%;
+      left: 60%;
+    }
+
+    #card-6 {
+      top: 15%;
+      left: 75%;
+    }
+
+    #card-7 {
+      top: 60%;
+      left: 85%;
     }
   }
 }

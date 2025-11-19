@@ -1,57 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>m1-2025-horizontal-scroll</title>
-  </head>
-  <body>
-    <div id="app" class="--home">
-      <section class="--intro">
-        <h1>Shaping timeless spaces with contemporary vision</h1>
-      </section>
-      <section class="--sticky">
-        <div class="slider">
-          <div class="slides">
-            <div class="slide">
-              <div class="img"><img src="/assets/home/img1.jpeg" alt="" /></div>
-              <div class="title">
-                <h1>Refined Reception<br />Lasting Impact</h1>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="img"><img src="/assets/home/img2.jpeg" alt="" /></div>
-              <div class="title">
-                <h1>Practical Luxury<br />Smart Living</h1>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="img"><img src="/assets/home/img3.jpeg" alt="" /></div>
-              <div class="title">
-                <h1>Modern Concrete<br />Warm Details</h1>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="img"><img src="/assets/home/img4.jpeg" alt="" /></div>
-              <div class="title">
-                <h1>Curved Elements<br />Modern Flow</h1>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="img"><img src="/assets/home/img5.jpeg" alt="" /></div>
-              <div class="title">
-                <h1>Minimal Design<br />Natural Light</h1>
-              </div>
-            </div>
-          </div>
+</head>
+
+<body>
+    <div class="video-background">
+        <div class="video-foreground">
+            <iframe
+                src="https://www.youtube.com/embed/e-IazpDc_mk?autoplay=1&mute=1&controls=0&loop=1&playlist=e-IazpDc_mk&showinfo=0&rel=0&modestbranding=1"
+                frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+            </iframe>
         </div>
-      </section>
-      <section class="--outro">
-        <h1>Shaping timeless spaces with contemporary vision</h1>
-        <p>(oué c'est le même texte, y a quoi ?)</p>
-      </section>
+    </div>
+
+    <div class="video-blur-overlay"></div>
+    <div class="video-color-pulse"></div>
+
+    <div id="app" class="home-meduza">
+        <!-- <button id="playMusicBtn" class="play-music-btn">🔊 Play Music</button>
+        <audio id="bgMusic" src="public/music/musica.mp3" preload="auto"></audio> -->
+
+        <section class="intro-meduza">
+            <h1>MEDUZA THE ELECTRO MUSIC FROM MILAN</h1>
+        </section>
+        <section class="sticky-wrapper-meduza">
+            <h1 class="titre">The Best Of Meduza</h1>
+            <div class="cards" id="card-1">
+                <img src="public/assets/meduza/musica.jfif" alt="">
+
+                <label class="music-toggle">
+                    <input type="checkbox" class="play-btn" />
+                    <div class="play-icon"></div>
+                    <div class="pause-icon"></div>
+                </label>
+
+                <audio src="/music/musica.mp3" preload="auto"></audio>
+            </div>
+
+            <div class="cards" id="card-2">
+                <img src="public/assets/meduza/evrything.jpg" alt="">
+
+                <label class="music-toggle">
+                    <input type="checkbox" class="play-btn" />
+                    <div class="play-icon"></div>
+                    <div class="pause-icon"></div>
+                </label>
+
+                <audio src="/music/evrything.mp3" preload="auto"></audio>
+            </div>
+
+            <div class="cards" id="card-3">
+                <img src="public/assets/meduza/phone.webp" alt="">
+
+                <label class="music-toggle">
+                    <input type="checkbox" class="play-btn" />
+                    <div class="play-icon"></div>
+                    <div class="pause-icon"></div>
+                </label>
+
+                <audio src="/music/phone.mp3" preload="auto"></audio>
+            </div>
+
+            <div class="cards" id="card-4">
+                <img src="public/assets/meduza/upside.jpg" alt="">
+
+                <label class="music-toggle">
+                    <input type="checkbox" class="play-btn" />
+                    <div class="play-icon"></div>
+                    <div class="pause-icon"></div>
+                </label>
+
+                <audio src="/music/upside.mp3" preload="auto"></audio>
+            </div>
+
+            <div class="cards" id="card-5">
+                <img src="public/assets/meduza/bad.jpg" alt="">
+
+                <label class="music-toggle">
+                    <input type="checkbox" class="play-btn" />
+                    <div class="play-icon"></div>
+                    <div class="pause-icon"></div>
+                </label>
+
+                <audio src="/music/bad.mp3" preload="auto"></audio>
+            </div>
+
+            <div class="cards" id="card-6">
+                <img src="public/assets/meduza/melodia.jpg" alt="">
+
+                <label class="music-toggle">
+                    <input type="checkbox" class="play-btn" />
+                    <div class="play-icon"></div>
+                    <div class="pause-icon"></div>
+                </label>
+
+                <audio src="/music/melodia.mp3" preload="auto"></audio>
+            </div>
+
+            <div class="cards" id="card-7">
+                <img src="public/assets/meduza/tell.jfif" alt="">
+
+                <label class="music-toggle">
+                    <input type="checkbox" class="play-btn" />
+                    <div class="play-icon"></div>
+                    <div class="pause-icon"></div>
+                </label>
+
+                <audio src="/music/upside.mp3" preload="auto"></audio>
+            </div>
+
+        </section>
+        <section class="outro-meduza">
+            <h1>Welcome to the Univers</h1>
+        </section>
     </div>
     <script type="module" src="/src/main.js"></script>
-  </body>
+</body>
+
 </html>
